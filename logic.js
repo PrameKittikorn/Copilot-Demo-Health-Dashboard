@@ -63,6 +63,10 @@ function calculateBodyFat(bmi, age, gender) {
     }
 }
 
+function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 // --- Exports for testing ---
 if (typeof module !== 'undefined') {
     module.exports = {
@@ -74,6 +78,7 @@ if (typeof module !== 'undefined') {
         calculateTDEE,
         calculateWaterIntake,
         calculateProteinIntake,
-        calculateBodyFat
+        calculateBodyFat,
+        formatNumberWithCommas
     };
 }

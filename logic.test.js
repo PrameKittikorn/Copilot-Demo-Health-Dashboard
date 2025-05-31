@@ -9,7 +9,8 @@ const {
   calculateTDEE,
   calculateWaterIntake,
   calculateProteinIntake,
-  calculateBodyFat
+  calculateBodyFat,
+  formatNumberWithCommas
 } = require('./logic');
 
 function test(title, fn) {
@@ -119,4 +120,19 @@ test('calculateBodyFat: should calculate body fat for male', () => {
 test('calculateBodyFat: should calculate body fat for female', () => {
   const bmi = calculateBMI(60, 170);
   assert.strictEqual(calculateBodyFat(bmi, 25, 'female').toFixed(1), '25.3');
+});
+
+// formatNumberWithCommas
+
+test('formatNumberWithCommas: should format numbers with commas', () => {
+  assert.strictEqual(formatNumberWithCommas('1970'), '1,970');
+});
+test('formatNumberWithCommas: should format larger numbers with commas', () => {
+  assert.strictEqual(formatNumberWithCommas('12345'), '12,345');
+});
+test('formatNumberWithCommas: should handle numbers less than 1000', () => {
+  assert.strictEqual(formatNumberWithCommas('999'), '999');
+});
+test('formatNumberWithCommas: should handle very large numbers', () => {
+  assert.strictEqual(formatNumberWithCommas('1234567'), '1,234,567');
 });
