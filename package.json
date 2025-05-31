@@ -1,0 +1,11 @@
+{
+  "name": "copilot-demo-health",
+  "version": "1.0.0",
+  "description": "Health dashboard with BMI and nutrition calculations",
+  "main": "logic.js",
+  "scripts": {
+    "test": "node logic.test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
